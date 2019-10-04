@@ -6,6 +6,11 @@ function calculate(inputValue) {
 
     const operation = inputValue.match(expression);
 
+    if (Number.isNaN(numberA) || Number.isNaN(numberB) || operation === null) {
+        updateResult('operation not recognized');
+        return;
+    }
+
     const calculator = new Calculator();
     calculator.add(numberA);
 
