@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Simple Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
     <script src="calculator.js"></script>
     <script src="main.js"></script>
-</head>
+  </head>
 
-<body>
-    Simple Calculator
-    <input type="text" onchange="calculate(this.value)">
-    <div>Result
-        <span id="result">3</span>
+  <body class="body">
+    <h1 class="title">Simple Calculator</h1>
+    <label for="">label for the input</label>
+    
+    <input 
+    class="input" 
+    type="text" 
+    title="calculator"
+    placeholder="Enter operation"
+    value="1+2"
+    onchange="calculate(this.value)" />
+    
+    <div class="result-container">
+    <div class="title">
+      Result
     </div>
-
-</body>
-
+    <span id="result">3</span>
+    </div>
+  </body>
 </html>
