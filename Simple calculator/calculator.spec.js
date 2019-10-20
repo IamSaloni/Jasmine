@@ -84,4 +84,11 @@ describe('calculator.js',function() {
         expect (calculator.total).toBeNaN();
     });
     
+    it('handles divide by zero', function() {
+        const calculator = new Calculator();
+
+        expect(function() {calculator.divide(0)}).toThrow();
+        expect(function() {calculator.divide(0)}).toThrowError(Error);
+      //  expect(function() {calculator.divide(0)}).toThrowError(Error, 'cannot divide by zer'); // it will throw error
+    });
 });
