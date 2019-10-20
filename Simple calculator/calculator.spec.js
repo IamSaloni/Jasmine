@@ -32,15 +32,24 @@ describe('calculator.js',function() {
         const calculator = new Calculator();
        // expect(calculator.total).toBe("0"); // it will give 
        expect(calculator.total).toBe(0);
+       expect(calculator.total).toBeFalsy();
     });
 
     //toEqual
 
-    it('has constructor', function() {
+    // it('has constructor', function() {
+    //     const calculator = new Calculator();
+    //     const calculator2 = new Calculator();
+    //     // calculator.total = 44; will give error 
+    //     expect(calculator).toEqual(calculator2); // deep equality comparison
+    // })
+
+    it('can be instantiated', function() {
         const calculator = new Calculator();
         const calculator2 = new Calculator();
-        // calculator.total = 44; will give error 
-        expect(calculator).toEqual(calculator2); // deep equality comparison
+        expect(calculator).toBeTruthy();
+        expect(calculator2).toBeTruthy();
+        expect(calculator).toEqual(calculator2);
     })
     
 });
