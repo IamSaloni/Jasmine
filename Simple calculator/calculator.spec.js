@@ -67,5 +67,11 @@ describe('calculator.js',function() {
         expect(calculator.multiply).toBeDefined();
         expect(calculator.divide).toBeDefined();
     })
+
+    it('can overwrite total', function() {
+        const calculator = new Calculator();
+        calculator.total = null;
+        expect(calculator.total).toBeNull();
+    })
     
 });
