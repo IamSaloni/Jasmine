@@ -33,5 +33,14 @@ describe('calculator.js',function() {
        // expect(calculator.total).toBe("0"); // it will give 
        expect(calculator.total).toBe(0);
     });
+
+    //toEqual
+
+    it('has constructor', function() {
+        const calculator = new Calculator();
+        const calculator2 = new Calculator();
+        // calculator.total = 44; will give error 
+        expect(calculator).toEqual(calculator2); // deep equality comparison
+    })
     
 });
