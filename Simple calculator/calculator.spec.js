@@ -25,5 +25,13 @@ describe('calculator.js',function() {
         calculator.divide(10);
         expect(calculator.total).toBe(1);
     });
+
+    //toBe
+
+    it('should initialize the total', function() {
+        const calculator = new Calculator();
+       // expect(calculator.total).toBe("0"); // it will give 
+       expect(calculator.total).toBe(0);
+    });
     
 });
