@@ -56,7 +56,16 @@ describe('calculator.js',function() {
         const calculator1 =  new Calculator();
         const calculator2 =  new Calculator();
 
-        expect(calculator1).not.toBe(calculator2);
+        expect(calculator1).not.toBe(calculator2);  //negating matchers
+    })
+
+    it('has common operations', function() {
+        const calculator =  new Calculator();
+
+        expect(calculator.add).toBeDefined();// or not.toBeUndefined();
+        expect(calculator.subtract).toBeDefined();
+        expect(calculator.multiply).toBeDefined();
+        expect(calculator.divide).toBeDefined();
     })
     
 });
