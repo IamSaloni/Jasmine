@@ -51,16 +51,16 @@ describe('calculator.js',function() {
         expect(calculator).toBeTruthy();
         expect(calculator2).toBeTruthy();
         expect(calculator).toEqual(calculator2);
-        expect(calculator.constructor.name).toContain("Calc");
+        expect(calculator.constructor.name).toContain("Calc"); //if we add calc1 it will give error
 
-    })
+    });
 
     it('instantiates unique object', function() {
         const calculator1 =  new Calculator();
         const calculator2 =  new Calculator();
 
         expect(calculator1).not.toBe(calculator2);  //negating matchers
-    })
+    });
 
     it('has common operations', function() {
         const calculator =  new Calculator();
@@ -69,12 +69,19 @@ describe('calculator.js',function() {
         expect(calculator.subtract).toBeDefined();
         expect(calculator.multiply).toBeDefined();
         expect(calculator.divide).toBeDefined();
-    })
+    });
 
     it('can overwrite total', function() {
         const calculator = new Calculator();
         calculator.total = null;
         expect(calculator.total).toBeNull();
-    })
+    });
+
+    it('does not handle NaN', function() {
+        const calculator =  new Calculator();
+        calculator.total = 20;
+        calculator.multiply('a');
+        expect (calculator.total).toBeNaN();
+    });
     
 });
