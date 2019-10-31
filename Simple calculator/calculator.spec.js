@@ -45,8 +45,12 @@ describe('calculator.js',function() {
     // })
 
     it('can be instantiated', function() {
+        jasmine.addMatchers(customMatchers);
         const calculator = new Calculator();
         const calculator2 = new Calculator();
+
+        expect(calculator).toBeCalculator(); //custom!
+        expect(2).not.toBeCalculator(); //custom!
 
         expect(calculator).toBeTruthy();
         expect(calculator2).toBeTruthy();
@@ -101,6 +105,6 @@ describe('calculator.js',function() {
         expect(typeof calculator.total).toMatch('number');
         expect(calculator.total).toEqual(jasmine.anything());
         expect(function() {}).toEqual(jasmine.anything());
-        expect(undefined).toEqual(jasmine.anything());
+        // expect(undefined).toEqual(jasmine.anything());
     })
 });
