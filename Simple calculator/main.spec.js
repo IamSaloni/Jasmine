@@ -68,7 +68,7 @@ describe("main.js", function() {
     });
 
    
-    it("calls updateResult", function() {
+    it("calls updateResult (example using and.callThrough)", function() {
       spyOn(window, 'updateResult');
       spyOn(Calculator.prototype, 'multiply').and.callThrough();
       calculate('5*5');
@@ -85,7 +85,15 @@ describe("main.js", function() {
       expect(window.updateResult).toHaveBeenCalled();
       expect(window.updateResult).toHaveBeenCalledWith(25);
     });
+    it("calls updateResult (example using and.returnValue)", function() {
+      spyOn(window, 'updateResult');
+      spyOn(Calculator.prototype, 'multiply').and.returnValue('whatever [multiply] return');
+      calculate('5*5');
+      expect(window.updateResult).toHaveBeenCalled();
+      expect(window.updateResult).toHaveBeenCalledWith('whatever [multiply] return');
+    });
   });
+  
 
   describe("updateResult()", function() {
     let element;
