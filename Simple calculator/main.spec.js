@@ -1,6 +1,39 @@
 describe("main.js", function() {
   describe("calculate()", function() {
-    xit("validates expression");
+    it("validates expression when first number is invalid", function() {
+      spyOn(window, "updateResult").and.stub();
+
+      calculate("a+3");
+
+      expect(window.updateResult).toHaveBeenCalled();
+      expect(window.updateResult).toHaveBeenCalledWith(
+        "Expression not recognized"
+      );
+      expect(window.updateResult).toHaveBeenCalledTimes(1);
+    });
+    it("validates expression when second number is invalid", function() {
+      spyOn(window, "updateResult");
+
+      calculate("3+a");
+
+      expect(window.updateResult).toHaveBeenCalled();
+      expect(window.updateResult).toHaveBeenCalledWith(
+        "Expression not recognized"
+      );
+      expect(window.updateResult).toHaveBeenCalledTimes(1);
+    });
+    it("validates expression when operation is invalid", function() {
+      spyOn(window, "updateResult");
+
+      calculate("3_4");
+
+      expect(window.updateResult).toHaveBeenCalled();
+      expect(window.updateResult).toHaveBeenCalledWith(
+        "Expression not recognized"
+      );
+      expect(window.updateResult).toHaveBeenCalledTimes(1);
+    });
+
     xit("calls add");
     xit("calls subtract");
     xit("calls multiply");
@@ -23,9 +56,8 @@ describe("main.js", function() {
     });
 
     it("adds result to DOM element", function() {
-
-      updateResult('5');
-      expect(this.element.innerText).toBe('5');
+      updateResult("5");
+      expect(this.element.innerText).toBe("5");
     });
   });
 });
