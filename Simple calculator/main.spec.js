@@ -67,8 +67,17 @@ describe("main.js", function() {
       expect(spy).toHaveBeenCalledWith(2);
     });
 
-    xit("validates operation");
-    xit("calls updateResult");
+   
+    it("calls updateResult", function() {
+      spyOn(window, 'updateResult');
+      spyOn(Calculator.prototype, 'multiply').and.callThrough();
+      calculate('5*5');
+      expect(window.updateResult).toHaveBeenCalled();
+      expect(window.updateResult).toHaveBeenCalledWith(25);
+
+      
+
+    });
   });
 
   describe("updateResult()", function() {
