@@ -40,3 +40,9 @@ function updateResult(result) {
         element.innerText = result;
     }
 }
+
+function showVersion() {
+    const calculator = new Calculator();
+    const element = document.getElementById('version');
+    element.innerText = calculator.version;
+}
