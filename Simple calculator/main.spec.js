@@ -121,13 +121,28 @@ describe("main.js", function() {
       this.element = element;
     });
 
-    afterAll(function() {
+   afterAll(function() {
       document.body.removeChild(this.element);
     });
 
     it("adds result to DOM element", function() {
       updateResult("5");
       expect(this.element.innerText).toBe("5");
+    });
+
+    describe('showVersion()', function() {
+      it('calls calculator.version', function() {
+        spyOn(document, 'getElementById').and.returnValues({
+          innerText:null
+        });
+      const syp = spyOnProperty(Calculator.prototype, 'version', 'get');
+
+        showVersion();
+
+        //Object.getOwnPropertyDescriptor(Calculator.prototype, 'version').get
+
+        expect(spy).toHaveBeenCalled();
+      });
     });
   });
 });
